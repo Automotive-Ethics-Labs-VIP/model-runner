@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Automotive-Ethics-Labs-VIP/model-runner/schemas/output.schema.json",
+  "title": "model-runner output (schema_version 1.0)",
+  "description": "One run: how it was produced (run) and one result per scenario and sample (results). Join results to other data on scenario_id, never on case_code.",
+  "type": "object",
+  "required": ["schema_version", "run", "results"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run": {
+      "type": "object",
+      "required": ["run_id", "created_utc", "modelrunner_version", "model", "engine", "hardware", "slurm",
+                   "sampling", "prompt", "input", "timing", "counts"],
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {"type": "string"},
+        "created_utc": {"type": "string", "format": "date-time"},
+        "modelrunner_version": {"type": "string"},
+        "model": {
+          "type": "object",
+          "required": ["key", "hf_id", "revision", "dtype", "gpus"],
+          "properties": {
+            "key": {"type": "string", "description": "Registry key, or the Hugging Face id if not in the registry"},
+            "hf_id": {"type": "string"},
+            "revision": {"type": ["string", "null"], "description": "Commit sha the weights came from"},
+            "dtype": {"type": "string"},
+            "gpus": {"type": "integer", "minimum": 1}
+          }
+        },
+        "engine": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {"name": {"enum": ["vllm", "hf", "mock"]}},
+          "description": "Engine name and library versions (vllm, torch, transformers)"
+        },
+        "hardware": {"type": "object", "required": ["host"]},
+        "slurm": {"type": ["object", "null"], "description": "job_id and partition, when run under Slurm"},
+        "sampling": {
+          "type": "object",
+          "required": ["temperature", "top_p", "max_new_tokens", "seed", "n_samples", "max_attempts"],
+          "properties": {
+            "temperature": {"type": "number"},
+            "top_p": {"type": "number"},
+            "max_new_tokens": {"type": "integer"},
+            "seed": {"type": "integer", "description": "Run seed; each request's seed is derived from it, the scenario id, sample index and attempt"},
+            "n_samples": {"type": "integer", "minimum": 1},
+            "max_attempts": {"type": "integer", "minimum": 1, "description": "1 + retries for replies that do not parse"}
+          }
+        },
+        "prompt": {
+          "type": "object",
+          "required": ["template", "sha256"],
+          "properties": {"template": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+        },
+        "input": {
+          "type": "object",
+          "required": ["path", "sha256", "count", "format"],
+          "properties": {
+            "path": {"type": "string"},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "count": {"type": "integer", "description": "Items run (after --ids / --limit)"},
+            "format": {"enum": ["team_c", "list", "questions"]}
+          }
+        },
+        "timing": {
+          "type": "object",
+          "required": ["load_s", "generate_s", "total_s"],
+          "properties": {"load_s": {"type": "number"}, "generate_s": {"type": "number"}, "total_s": {"type": "number"}}
+        },
+        "counts": {
+          "type": "object",
+          "required": ["total", "parse_ok", "parse_failed", "first_attempt_ok", "truncated", "completion_tokens"],
+          "properties": {
+            "total": {"type": "integer"},
+            "parse_ok": {"type": "integer"},
+            "parse_failed": {"type": "integer"},
+            "first_attempt_ok": {"type": "integer", "description": "Parsed without a retry. The honest parse rate."},
+            "truncated": {"type": "integer", "description": "Final replies that hit max_new_tokens"},
+            "completion_tokens": {"type": "integer", "description": "Over every attempt"}
+          }
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scenario_id", "case_code", "sample_index", "raw_response", "thinking", "parsed", "parse_ok",
+                     "parse_error", "finish_reason", "attempts", "earlier_attempts", "tokens", "latency_s", "meta"],
+        "additionalProperties": false,
+        "properties": {
+          "scenario_id": {"type": "string"},
+          "case_code": {"type": "string", "description": "The opaque code the model saw instead of the id; unique within the run"},
+          "sample_index": {"type": "integer", "minimum": 0},
+          "raw_response": {"type": "string", "description": "The final attempt's full reply, thinking included"},
+          "thinking": {"type": ["string", "null"], "description": "Text before </think>, if any"},
+          "parsed": {"type": ["object", "null"], "description": "The reply's JSON object (even if it failed validation)"},
+          "parse_ok": {"type": "boolean", "description": "True when parsed matches the template's reply schema and fits the scenario (case code, possible actions)"},
+          "parse_error": {"type": ["string", "null"]},
+          "finish_reason": {"enum": ["stop", "length"]},
+          "attempts": {"type": "integer", "minimum": 1},
+          "earlier_attempts": {
+            "type": "array",
+            "description": "Every failed attempt before the final one, kept in full",
+            "items": {
+              "type": "object",
+              "required": ["attempt", "seed", "raw_response", "finish_reason", "parse_error", "tokens"]
+            }
+          },
+          "tokens": {
+            "type": "object",
+            "required": ["prompt", "completion"],
+            "properties": {"prompt": {"type": "integer"}, "completion": {"type": "integer"}}
+          },
+          "latency_s": {"type": "number", "description": "This request's share of its batch's generation time"},
+          "meta": {"type": "object", "description": "Every input field except the id and narrative (Team C: record, labels, variables, ...)"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Known models. --model accepts a key below or any Hugging Face address (org/name or a full URL);
+# addresses not listed here are sized from the Hub's metadata.
+#
+# hf_id                 Hugging Face repo
+# revision              optional: pin a commit (otherwise the current main commit is resolved and recorded)
+# dtype                 bfloat16 unless the model needs otherwise
+# engine                preferred engine (vllm | hf)
+# min_gpus              optional override of the size-based estimate
+# max_model_len         context length to allocate (prompt + reply); reasoning replies are long
+# chat_template_kwargs  passed to the chat template (e.g. a documented thinking switch)
+# loader_class          hf engine only: transformers auto class, if AutoModelForCausalLM is wrong
+# notes                 anything a user should know
+
+deepseek-9b:
+  hf_id: xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic
+  dtype: bfloat16
+  engine: vllm
+  max_model_len: 8192
+  loader_class: AutoModelForMultimodalLM
+  notes: >
+    Reference model of the first SeaWulf run (job 2417039). A refusal-removed ("uncensored") fine-tune:
+    fine for testing the pipeline, but its would_decline and choices do not represent its base model.
+    Replies are reasoning text, a bare </think>, then the answer.
+
+nanbeige-33b:
+  hf_id: Nanbeige/Nanbeige4.3-33B
+  dtype: bfloat16
+  engine: vllm
+  max_model_len: 8192
+  notes: Named in the ticket. Size and loader unverified until it is resolved on the cluster.

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelrunner"
+version = "0.1.0"
+description = "Run open-weight models over AEL scenario sets: scenarios.json + model -> output.json"
+requires-python = ">=3.10"
+dependencies = ["jsonschema>=4.20", "pyyaml>=6", "huggingface_hub>=0.30"]
+
+[project.optional-dependencies]
+vllm = ["vllm"]
+hf = ["torch", "transformers", "accelerate"]
+test = ["pytest"]
+
+[project.scripts]
+modelrunner = "modelrunner.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

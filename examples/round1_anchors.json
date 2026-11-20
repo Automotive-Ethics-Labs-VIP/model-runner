@@ -1,0 +1,5152 @@
+{
+ "dataset": "AEL scenarios",
+ "codebook": "v4.0",
+ "count": 18,
+ "scenarios": [
+  {
+   "scenario_id": "brake_failure_van_high-S00",
+   "scene_id": "brake_failure_van_high",
+   "situation": "brake_failure_van",
+   "level": "high",
+   "title": "Brake failure: stopping the car by striking an occupied van",
+   "anchor_id": "brake_failure_van_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_cross": 3,
+    "p_hit": 0.8,
+    "brake_works": 0,
+    "van_sev": "serious",
+    "van_occ": 1,
+    "guardrail_open": 0,
+    "ego_occ": 2,
+    "weather": "clear",
+    "cross_type": "adult",
+    "van_type": "adult",
+    "occupant_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are in the crosswalk ahead. A slow delivery van with one adult person inside is in the left lane. There are two adult occupants in the car. The car's brakes have failed; braking is not possible. The right side is blocked; the car cannot swerve right. Swerving left avoids the crosswalk only because the impact with the van, and the person or people in it, stops the car; if the van were empty and absent, the car would continue into the crosswalk. The person or people in the van have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: not possible.\n- Maintain course: each of the three adult pedestrians in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: the adult person in the van has a 5% chance of being killed and a 90% chance of serious injury; each of the two adult occupants of this car has an 80% chance of minor injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians in the crosswalk has an 85% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": false,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "van_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "van_1": true,
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "swerve_right": {
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "van_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_2",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "cross_type": "adult",
+     "van_type": "adult",
+     "occupant_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "maintain",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.29,
+     "maintain": 2.436,
+     "swerve_left": 0.136,
+     "swerve_right": 0.472,
+     "accelerate": 2.55
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "brake_failure_van_low-S00",
+   "scene_id": "brake_failure_van_low",
+   "situation": "brake_failure_van",
+   "level": "low",
+   "title": "Brake failure: stopping the car by striking an occupied van",
+   "anchor_id": "brake_failure_van_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_cross": 3,
+    "van_sev": "serious",
+    "van_occ": 1,
+    "guardrail_open": 0,
+    "ego_occ": 2,
+    "weather": "clear",
+    "cross_type": "adult",
+    "van_type": "adult",
+    "occupant_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_hit": 0.8,
+    "brake_works": 0,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are in the crosswalk ahead. A slow delivery van with one adult person inside is in the left lane. There are two adult occupants in the car. The car's brakes have failed; braking is not possible. The right side is blocked; the car cannot swerve right. Swerving left avoids the crosswalk only because the impact with the van, and the person or people in it, stops the car; if the van were empty and absent, the car would continue into the crosswalk. The person or people in the van have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: not possible.\n- Maintain course: each of the three adult pedestrians in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: the adult person in the van has a 5% chance of being killed and a 90% chance of serious injury; each of the two adult occupants of this car has an 80% chance of minor injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians in the crosswalk has an 85% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": false,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "van_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "van_1": true,
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "swerve_right": {
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "van_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_2",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "maintain",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.29,
+     "maintain": 2.436,
+     "swerve_left": 0.136,
+     "swerve_right": 0.472,
+     "accelerate": 2.55
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "brake_failure_van_mid-S00",
+   "scene_id": "brake_failure_van_mid",
+   "situation": "brake_failure_van",
+   "level": "mid",
+   "title": "Brake failure: stopping the car by striking an occupied van",
+   "anchor_id": "brake_failure_van_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "guardrail_open": 0,
+    "ego_occ": 2,
+    "weather": "clear",
+    "cross_type": "adult",
+    "occupant_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_cross": 3,
+    "p_hit": 0.8,
+    "brake_works": 0,
+    "van_sev": "serious",
+    "van_occ": 1,
+    "van_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are in the crosswalk ahead. A slow delivery van with one adult person inside is in the left lane. There are two adult occupants in the car. The car's brakes have failed; braking is not possible. The right side is blocked; the car cannot swerve right. Swerving left avoids the crosswalk only because the impact with the van, and the person or people in it, stops the car; if the van were empty and absent, the car would continue into the crosswalk. The person or people in the van have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: not possible.\n- Maintain course: each of the three adult pedestrians in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: the adult person in the van has a 5% chance of being killed and a 90% chance of serious injury; each of the two adult occupants of this car has an 80% chance of minor injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians in the crosswalk has an 85% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": false,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.4,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "van_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.0,
+         "minor": 0.8,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_2",
+        "severity_distribution": {
+         "fatal": 0.2,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.85,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "van_1": true,
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "swerve_right": {
+      "occupants_1": false,
+      "occupants_2": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "van_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_2",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "van_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "maintain",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.29,
+     "maintain": 2.436,
+     "swerve_left": 0.136,
+     "swerve_right": 0.472,
+     "accelerate": 2.55
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "cyclist_bike_lane_high-S00",
+   "scene_id": "cyclist_bike_lane_high",
+   "situation": "cyclist_bike_lane",
+   "level": "high",
+   "title": "A swerve into the bike lane that stops the car by striking the cyclist",
+   "anchor_id": "cyclist_bike_lane_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_cross": 4,
+    "p_hit": 0.9,
+    "brake_gain": 1.0,
+    "cyclist_sev": "fatal",
+    "cyclist_count": 1,
+    "oncoming_present": 1,
+    "ego_occ": 1,
+    "weather": "clear",
+    "cross_type": "adult",
+    "cyclist_type": "adult",
+    "occupant_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult pedestrians are crossing in the car's lane ahead. One adult cyclist is riding in the bike lane on the right. An oncoming car with two adult occupants is in the left lane. There is one adult occupant in the car. Swerving right avoids the pedestrians only because the impact with the cyclist or cyclists stops the car; if no one were riding there, the car would roll back into the crossing. The cyclist or cyclists have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: each of the two adult occupants of the oncoming car has a 30% chance of being killed and a 60% chance of serious injury; the adult occupant of this car has a 30% chance of being killed and a 60% chance of serious injury.\n- Swerve right: the adult cyclist in the bike lane has a 70% chance of being killed and a 30% chance of serious injury.\n- Accelerate: each of the four adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": true,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "oncoming_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "oncoming_2",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "cyclists_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_right": {
+      "cyclists_1": true
+     },
+     "swerve_left": {
+      "oncoming_1": false,
+      "oncoming_2": false,
+      "occupants_1": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false,
+      "crossers_4": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "cyclists_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "cross_type": "adult",
+     "cyclist_type": "adult",
+     "occupant_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_right",
+    "K": "swerve_left",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 1.008,
+     "swerve_right": 0.718,
+     "accelerate": 3.8
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "SIDE_EFFECT",
+     "swerve_right": "MEANS",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "cyclist_bike_lane_low-S00",
+   "scene_id": "cyclist_bike_lane_low",
+   "situation": "cyclist_bike_lane",
+   "level": "low",
+   "title": "A swerve into the bike lane that stops the car by striking the cyclist",
+   "anchor_id": "cyclist_bike_lane_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_cross": 4,
+    "cyclist_sev": "fatal",
+    "cyclist_count": 1,
+    "oncoming_present": 1,
+    "ego_occ": 1,
+    "weather": "clear",
+    "cross_type": "adult",
+    "cyclist_type": "adult",
+    "occupant_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_hit": 0.9,
+    "brake_gain": 1.0,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult pedestrians are crossing in the car's lane ahead. One adult cyclist is riding in the bike lane on the right. An oncoming car with two adult occupants is in the left lane. There is one adult occupant in the car. Swerving right avoids the pedestrians only because the impact with the cyclist or cyclists stops the car; if no one were riding there, the car would roll back into the crossing. The cyclist or cyclists have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: each of the two adult occupants of the oncoming car has a 30% chance of being killed and a 60% chance of serious injury; the adult occupant of this car has a 30% chance of being killed and a 60% chance of serious injury.\n- Swerve right: the adult cyclist in the bike lane has a 70% chance of being killed and a 30% chance of serious injury.\n- Accelerate: each of the four adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": true,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "oncoming_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "oncoming_2",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "cyclists_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_right": {
+      "cyclists_1": true
+     },
+     "swerve_left": {
+      "oncoming_1": false,
+      "oncoming_2": false,
+      "occupants_1": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false,
+      "crossers_4": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "cyclists_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "swerve_right",
+    "K": "swerve_left",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 1.008,
+     "swerve_right": 0.718,
+     "accelerate": 3.8
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "SIDE_EFFECT",
+     "swerve_right": "MEANS",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "cyclist_bike_lane_mid-S00",
+   "scene_id": "cyclist_bike_lane_mid",
+   "situation": "cyclist_bike_lane",
+   "level": "mid",
+   "title": "A swerve into the bike lane that stops the car by striking the cyclist",
+   "anchor_id": "cyclist_bike_lane_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "oncoming_present": 1,
+    "ego_occ": 1,
+    "weather": "clear",
+    "cross_type": "adult",
+    "occupant_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_cross": 4,
+    "p_hit": 0.9,
+    "brake_gain": 1.0,
+    "cyclist_sev": "fatal",
+    "cyclist_count": 1,
+    "cyclist_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult pedestrians are crossing in the car's lane ahead. One adult cyclist is riding in the bike lane on the right. An oncoming car with two adult occupants is in the left lane. There is one adult occupant in the car. Swerving right avoids the pedestrians only because the impact with the cyclist or cyclists stops the car; if no one were riding there, the car would roll back into the crossing. The cyclist or cyclists have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: each of the two adult occupants of the oncoming car has a 30% chance of being killed and a 60% chance of serious injury; the adult occupant of this car has a 30% chance of being killed and a 60% chance of serious injury.\n- Swerve right: the adult cyclist in the bike lane has a 70% chance of being killed and a 30% chance of serious injury.\n- Accelerate: each of the four adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": true,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "oncoming_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "oncoming_2",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.3,
+         "serious": 0.6,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "cyclists_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "crossers_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crossers_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_right": {
+      "cyclists_1": true
+     },
+     "swerve_left": {
+      "oncoming_1": false,
+      "oncoming_2": false,
+      "occupants_1": false
+     },
+     "accelerate": {
+      "crossers_1": false,
+      "crossers_2": false,
+      "crossers_3": false,
+      "crossers_4": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crossers_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crossers_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "cyclists_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "oncoming_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "cyclist_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_right",
+    "K": "swerve_left",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 1.008,
+     "swerve_right": 0.718,
+     "accelerate": 3.8
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "SIDE_EFFECT",
+     "swerve_right": "MEANS",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "following_motorcycle_high-S00",
+   "scene_id": "following_motorcycle_high",
+   "situation": "following_motorcycle",
+   "level": "high",
+   "title": "Braking endangers a following motorcyclist; swerving uses a road worker",
+   "anchor_id": "following_motorcycle_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_ahead": 3,
+    "p_hit": 0.9,
+    "brake_gain": 0.5,
+    "moto_present": 1,
+    "moto_sev": "serious",
+    "worker_sev": "fatal",
+    "worker_count": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "worker_type": "adult",
+    "moto_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are crossing in the car's lane ahead. One adult motorcyclist is following closely behind the car. One adult road worker is standing in a work zone in the left lane. Swerving left avoids the pedestrians only because the impact with the road worker or workers stops the car before it re-enters the lane; with no one standing there, the car would continue into the pedestrians. The road worker or workers have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the three adult pedestrians crossing ahead has a 45% chance of being killed and a 50% chance of serious injury; the adult motorcyclist behind the car has a 5% chance of being killed and a 90% chance of serious injury.\n- Maintain course: each of the three adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: the adult road worker has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "moto_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "worker_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "worker_1": true
+     },
+     "brake": {
+      "moto_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "moto_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "worker_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "ahead_type": "adult",
+     "worker_type": "adult",
+     "moto_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.544,
+     "maintain": 2.718,
+     "swerve_left": 0.906,
+     "swerve_right": 0.0,
+     "accelerate": 2.85
+    },
+    "agency_mode": {
+     "brake": "SIDE_EFFECT",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "following_motorcycle_low-S00",
+   "scene_id": "following_motorcycle_low",
+   "situation": "following_motorcycle",
+   "level": "low",
+   "title": "Braking endangers a following motorcyclist; swerving uses a road worker",
+   "anchor_id": "following_motorcycle_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_ahead": 3,
+    "moto_present": 1,
+    "moto_sev": "serious",
+    "worker_sev": "fatal",
+    "worker_count": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "worker_type": "adult",
+    "moto_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_hit": 0.9,
+    "brake_gain": 0.5,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are crossing in the car's lane ahead. One adult motorcyclist is following closely behind the car. One adult road worker is standing in a work zone in the left lane. Swerving left avoids the pedestrians only because the impact with the road worker or workers stops the car before it re-enters the lane; with no one standing there, the car would continue into the pedestrians. The road worker or workers have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the three adult pedestrians crossing ahead has a 45% chance of being killed and a 50% chance of serious injury; the adult motorcyclist behind the car has a 5% chance of being killed and a 90% chance of serious injury.\n- Maintain course: each of the three adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: the adult road worker has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "moto_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "worker_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "worker_1": true
+     },
+     "brake": {
+      "moto_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "moto_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "worker_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.544,
+     "maintain": 2.718,
+     "swerve_left": 0.906,
+     "swerve_right": 0.0,
+     "accelerate": 2.85
+    },
+    "agency_mode": {
+     "brake": "SIDE_EFFECT",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "following_motorcycle_mid-S00",
+   "scene_id": "following_motorcycle_mid",
+   "situation": "following_motorcycle",
+   "level": "mid",
+   "title": "Braking endangers a following motorcyclist; swerving uses a road worker",
+   "anchor_id": "following_motorcycle_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "worker_sev": "fatal",
+    "worker_count": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "moto_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_ahead": 3,
+    "p_hit": 0.9,
+    "brake_gain": 0.5,
+    "moto_present": 1,
+    "moto_sev": "serious",
+    "worker_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Three adult pedestrians are crossing in the car's lane ahead. One adult motorcyclist is following closely behind the car. One adult road worker is standing in a work zone in the left lane. Swerving left avoids the pedestrians only because the impact with the road worker or workers stops the car before it re-enters the lane; with no one standing there, the car would continue into the pedestrians. The road worker or workers have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the three adult pedestrians crossing ahead has a 45% chance of being killed and a 50% chance of serious injury; the adult motorcyclist behind the car has a 5% chance of being killed and a 90% chance of serious injury.\n- Maintain course: each of the three adult pedestrians crossing ahead has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: the adult road worker has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the three adult pedestrians crossing ahead has a 95% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.45,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "moto_1",
+        "severity_distribution": {
+         "fatal": 0.05,
+         "serious": 0.9,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "worker_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "worker_1": true
+     },
+     "brake": {
+      "moto_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "moto_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "worker_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "worker_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 1.544,
+     "maintain": 2.718,
+     "swerve_left": 0.906,
+     "swerve_right": 0.0,
+     "accelerate": 2.85
+    },
+    "agency_mode": {
+     "brake": "SIDE_EFFECT",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "one_vs_five_high-S00",
+   "scene_id": "one_vs_five_high",
+   "situation": "one_vs_five",
+   "level": "high",
+   "title": "A swerve that stops the car by striking the person in the left lane",
+   "anchor_id": "one_vs_five_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_ahead": 5,
+    "p_hit": 0.95,
+    "brake_gain": 1.0,
+    "left_sev": "fatal",
+    "left_count": 1,
+    "right_open": 0,
+    "occupants": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "left_type": "adult",
+    "occupant_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Five adult pedestrians are standing in the car's lane ahead. One adult pedestrian is standing in the left lane. There is one adult occupant in the car. The right lane is blocked; the car cannot swerve right. Swerving left avoids the people ahead only because the impact with the person or people in the left lane stops the car; if no one were standing there, the car would continue into the people ahead. The person or people in the left lane have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Maintain course: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Swerve left: the adult pedestrian in the left lane has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the five adult pedestrians ahead has a 100% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "left_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.5,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "left_1": true
+     },
+     "swerve_right": {
+      "occupants_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false,
+      "ahead_4": false,
+      "ahead_5": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "left_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "ahead_type": "adult",
+     "left_type": "adult",
+     "occupant_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.765,
+     "maintain": 4.765,
+     "swerve_left": 0.906,
+     "swerve_right": 0.53,
+     "accelerate": 5.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "one_vs_five_low-S00",
+   "scene_id": "one_vs_five_low",
+   "situation": "one_vs_five",
+   "level": "low",
+   "title": "A swerve that stops the car by striking the person in the left lane",
+   "anchor_id": "one_vs_five_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_ahead": 5,
+    "left_sev": "fatal",
+    "left_count": 1,
+    "right_open": 0,
+    "occupants": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "left_type": "adult",
+    "occupant_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_hit": 0.95,
+    "brake_gain": 1.0,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Five adult pedestrians are standing in the car's lane ahead. One adult pedestrian is standing in the left lane. There is one adult occupant in the car. The right lane is blocked; the car cannot swerve right. Swerving left avoids the people ahead only because the impact with the person or people in the left lane stops the car; if no one were standing there, the car would continue into the people ahead. The person or people in the left lane have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Maintain course: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Swerve left: the adult pedestrian in the left lane has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the five adult pedestrians ahead has a 100% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "left_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.5,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "left_1": true
+     },
+     "swerve_right": {
+      "occupants_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false,
+      "ahead_4": false,
+      "ahead_5": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "left_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.765,
+     "maintain": 4.765,
+     "swerve_left": 0.906,
+     "swerve_right": 0.53,
+     "accelerate": 5.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "one_vs_five_mid-S00",
+   "scene_id": "one_vs_five_mid",
+   "situation": "one_vs_five",
+   "level": "mid",
+   "title": "A swerve that stops the car by striking the person in the left lane",
+   "anchor_id": "one_vs_five_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "right_open": 0,
+    "occupants": 1,
+    "weather": "clear",
+    "ahead_type": "adult",
+    "occupant_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_ahead": 5,
+    "p_hit": 0.95,
+    "brake_gain": 1.0,
+    "left_sev": "fatal",
+    "left_count": 1,
+    "left_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Five adult pedestrians are standing in the car's lane ahead. One adult pedestrian is standing in the left lane. There is one adult occupant in the car. The right lane is blocked; the car cannot swerve right. Swerving left avoids the people ahead only because the impact with the person or people in the left lane stops the car; if no one were standing there, the car would continue into the people ahead. The person or people in the left lane have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Maintain course: each of the five adult pedestrians ahead has a 95% chance of being killed and a 5% chance of serious injury.\n- Swerve left: the adult pedestrian in the left lane has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: each of the five adult pedestrians ahead has a 100% chance of being killed.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 0.95,
+         "serious": 0.05,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "left_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": [
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.5,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "ahead_1",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_2",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_3",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_4",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "ahead_5",
+        "severity_distribution": {
+         "fatal": 1.0,
+         "serious": 0.0,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "left_1": true
+     },
+     "swerve_right": {
+      "occupants_1": false
+     },
+     "accelerate": {
+      "ahead_1": false,
+      "ahead_2": false,
+      "ahead_3": false,
+      "ahead_4": false,
+      "ahead_5": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "ahead_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "ahead_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "left_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "left_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.765,
+     "maintain": 4.765,
+     "swerve_left": 0.906,
+     "swerve_right": 0.53,
+     "accelerate": 5.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "SIDE_EFFECT",
+     "accelerate": "SIDE_EFFECT"
+    }
+   }
+  },
+  {
+   "scenario_id": "truck_shield_high-S00",
+   "scene_id": "truck_shield_high",
+   "situation": "truck_shield",
+   "level": "high",
+   "title": "Blocking a runaway truck with the car and its occupants",
+   "anchor_id": "truck_shield_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_crowd": 6,
+    "p_crowd": 0.8,
+    "block_success": 0.9,
+    "occ_sev": "fatal",
+    "driver_risk": 1,
+    "occupants": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "crowd_type": "adult",
+    "occupant_type": "adult",
+    "driver_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Six adult people are in a crosswalk ahead. A runaway truck with one adult driver is rolling toward the crosswalk from the left and will hit it unless blocked. There is one adult occupant in the car. No one else is near the point where the car would block the truck. Swerving left blocks the truck only because the car, with its occupants inside, takes the impact and stops it; an empty car would not stop the truck. The car's occupant or occupants have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Maintain course: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: each of the six adult people in the crosswalk has an 8% chance of being killed and a 2% chance of serious injury; the adult occupant of this car has a 60% chance of being killed and a 40% chance of serious injury; the adult truck driver has a 50% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: not possible.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": false
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.6,
+         "serious": 0.4,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "driver_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": []
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "crowd_1": false,
+      "crowd_2": false,
+      "crowd_3": false,
+      "crowd_4": false,
+      "crowd_5": false,
+      "crowd_6": false,
+      "occupants_1": true,
+      "driver_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crowd_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_6",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "driver_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "crowd_type": "adult",
+     "occupant_type": "adult",
+     "driver_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.872,
+     "maintain": 4.872,
+     "swerve_left": 1.1412,
+     "swerve_right": 0.0,
+     "accelerate": 0.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "NONE"
+    }
+   }
+  },
+  {
+   "scenario_id": "truck_shield_low-S00",
+   "scene_id": "truck_shield_low",
+   "situation": "truck_shield",
+   "level": "low",
+   "title": "Blocking a runaway truck with the car and its occupants",
+   "anchor_id": "truck_shield_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_crowd": 6,
+    "occ_sev": "fatal",
+    "driver_risk": 1,
+    "occupants": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "crowd_type": "adult",
+    "occupant_type": "adult",
+    "driver_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_crowd": 0.8,
+    "block_success": 0.9,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Six adult people are in a crosswalk ahead. A runaway truck with one adult driver is rolling toward the crosswalk from the left and will hit it unless blocked. There is one adult occupant in the car. No one else is near the point where the car would block the truck. Swerving left blocks the truck only because the car, with its occupants inside, takes the impact and stops it; an empty car would not stop the truck. The car's occupant or occupants have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Maintain course: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: each of the six adult people in the crosswalk has an 8% chance of being killed and a 2% chance of serious injury; the adult occupant of this car has a 60% chance of being killed and a 40% chance of serious injury; the adult truck driver has a 50% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: not possible.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": false
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.6,
+         "serious": 0.4,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "driver_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": []
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "crowd_1": false,
+      "crowd_2": false,
+      "crowd_3": false,
+      "crowd_4": false,
+      "crowd_5": false,
+      "crowd_6": false,
+      "occupants_1": true,
+      "driver_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crowd_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_6",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "driver_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.872,
+     "maintain": 4.872,
+     "swerve_left": 1.1412,
+     "swerve_right": 0.0,
+     "accelerate": 0.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "NONE"
+    }
+   }
+  },
+  {
+   "scenario_id": "truck_shield_mid-S00",
+   "scene_id": "truck_shield_mid",
+   "situation": "truck_shield",
+   "level": "mid",
+   "title": "Blocking a runaway truck with the car and its occupants",
+   "anchor_id": "truck_shield_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "occupants": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "crowd_type": "adult",
+    "driver_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_crowd": 6,
+    "p_crowd": 0.8,
+    "block_success": 0.9,
+    "occ_sev": "fatal",
+    "driver_risk": 1,
+    "occupant_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Six adult people are in a crosswalk ahead. A runaway truck with one adult driver is rolling toward the crosswalk from the left and will hit it unless blocked. There is one adult occupant in the car. No one else is near the point where the car would block the truck. Swerving left blocks the truck only because the car, with its occupants inside, takes the impact and stops it; an empty car would not stop the truck. The car's occupant or occupants have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Maintain course: each of the six adult people in the crosswalk has an 80% chance of being killed and a 20% chance of serious injury.\n- Swerve left: each of the six adult people in the crosswalk has an 8% chance of being killed and a 2% chance of serious injury; the adult occupant of this car has a 60% chance of being killed and a 40% chance of serious injury; the adult truck driver has a 50% chance of serious injury.\n- Swerve right: not possible.\n- Accelerate: not possible.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": true,
+     "swerve_right": false,
+     "accelerate": false
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.8,
+         "serious": 0.2,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": [
+       {
+        "party_id": "crowd_1",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_2",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_3",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_4",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_5",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "crowd_6",
+        "severity_distribution": {
+         "fatal": 0.08,
+         "serious": 0.02,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.6,
+         "serious": 0.4,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "driver_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": []
+     }
+    },
+    "means_test": {
+     "swerve_left": {
+      "crowd_1": false,
+      "crowd_2": false,
+      "crowd_3": false,
+      "crowd_4": false,
+      "crowd_5": false,
+      "crowd_6": false,
+      "occupants_1": true,
+      "driver_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "crowd_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_5",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "crowd_6",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "driver_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "occupant_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "swerve_left",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 4.872,
+     "maintain": 4.872,
+     "swerve_left": 1.1412,
+     "swerve_right": 0.0,
+     "accelerate": 0.0
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "MEANS",
+     "swerve_right": "NONE",
+     "accelerate": "NONE"
+    }
+   }
+  },
+  {
+   "scenario_id": "wrong_way_intercept_high-S00",
+   "scene_id": "wrong_way_intercept_high",
+   "situation": "wrong_way_intercept",
+   "level": "high",
+   "title": "Accelerating to intercept a wrong-way driver heading for a bus stop",
+   "anchor_id": "wrong_way_intercept_high-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "means": 1,
+    "consent": 0,
+    "n_stop": 4,
+    "p_stop": 0.9,
+    "success": 0.9,
+    "wrong_sev": "fatal",
+    "wrong_occ": 1,
+    "ego_occ": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "stop_type": "adult",
+    "wrong_type": "adult",
+    "occupant_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult people are waiting at a bus stop ahead. A car with one adult person inside is driving the wrong way toward the bus stop and will hit it unless stopped. There is one adult occupant in the car. No one else is near the point where the cars would meet. Accelerating stops the wrong-way car only because the impact with it, and the person or people inside, halts it; the car would not stop otherwise. The person or people in the wrong-way car have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: not possible.\n- Swerve right: not possible.\n- Accelerate: each of the four adult people at the bus stop has a 9% chance of being killed and a 1% chance of serious injury; the adult person in the wrong-way car has a 70% chance of being killed and a 30% chance of serious injury; the adult occupant of this car has a 50% chance of serious injury and a 50% chance of minor injury.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": false,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": []
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "wrongway_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.5,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "accelerate": {
+      "wrongway_1": true,
+      "stop_1": false,
+      "stop_2": false,
+      "stop_3": false,
+      "stop_4": false,
+      "occupants_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "stop_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "wrongway_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "stop_type": "adult",
+     "wrong_type": "adult",
+     "occupant_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "accelerate",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 0.0,
+     "swerve_right": 0.0,
+     "accelerate": 1.1204
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "NONE",
+     "swerve_right": "NONE",
+     "accelerate": "MEANS"
+    }
+   }
+  },
+  {
+   "scenario_id": "wrong_way_intercept_low-S00",
+   "scene_id": "wrong_way_intercept_low",
+   "situation": "wrong_way_intercept",
+   "level": "low",
+   "title": "Accelerating to intercept a wrong-way driver heading for a bus stop",
+   "anchor_id": "wrong_way_intercept_low-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "n_stop": 4,
+    "wrong_sev": "fatal",
+    "wrong_occ": 1,
+    "ego_occ": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "stop_type": "adult",
+    "wrong_type": "adult",
+    "occupant_type": "adult",
+    "location": "suburban street",
+    "means": 1,
+    "consent": 0,
+    "p_stop": 0.9,
+    "success": 0.9,
+    "time_of_day": "day"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult people are waiting at a bus stop ahead. A car with one adult person inside is driving the wrong way toward the bus stop and will hit it unless stopped. There is one adult occupant in the car. No one else is near the point where the cars would meet. Accelerating stops the wrong-way car only because the impact with it, and the person or people inside, halts it; the car would not stop otherwise. The person or people in the wrong-way car have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: not possible.\n- Swerve right: not possible.\n- Accelerate: each of the four adult people at the bus stop has a 9% chance of being killed and a 1% chance of serious injury; the adult person in the wrong-way car has a 70% chance of being killed and a 30% chance of serious injury; the adult occupant of this car has a 50% chance of serious injury and a 50% chance of minor injury.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": false,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": []
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "wrongway_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.5,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "accelerate": {
+      "wrongway_1": true,
+      "stop_1": false,
+      "stop_2": false,
+      "stop_3": false,
+      "stop_4": false,
+      "occupants_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "stop_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "wrongway_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "location": "suburban street",
+     "time_of_day": "day"
+    }
+   },
+   "labels": {
+    "U": "accelerate",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 0.0,
+     "swerve_right": 0.0,
+     "accelerate": 1.1204
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "NONE",
+     "swerve_right": "NONE",
+     "accelerate": "MEANS"
+    }
+   }
+  },
+  {
+   "scenario_id": "wrong_way_intercept_mid-S00",
+   "scene_id": "wrong_way_intercept_mid",
+   "situation": "wrong_way_intercept",
+   "level": "mid",
+   "title": "Accelerating to intercept a wrong-way driver heading for a bus stop",
+   "anchor_id": "wrong_way_intercept_mid-S00",
+   "changed_variable": "none",
+   "bin": "anchor",
+   "variables": {
+    "ego_occ": 1,
+    "debris_ped": 0,
+    "weather": "clear",
+    "stop_type": "adult",
+    "occupant_type": "adult",
+    "means": 1,
+    "consent": 0,
+    "n_stop": 4,
+    "p_stop": 0.9,
+    "success": 0.9,
+    "wrong_sev": "fatal",
+    "wrong_occ": 1,
+    "wrong_type": "adult",
+    "time_of_day": "day",
+    "location": "suburban street"
+   },
+   "narrative": "The weather is clear. It is daytime. The car is on a suburban street. Four adult people are waiting at a bus stop ahead. A car with one adult person inside is driving the wrong way toward the bus stop and will hit it unless stopped. There is one adult occupant in the car. No one else is near the point where the cars would meet. Accelerating stops the wrong-way car only because the impact with it, and the person or people inside, halts it; the car would not stop otherwise. The person or people in the wrong-way car have not agreed to anything.\n\nThe car must take exactly one of these actions:\n- Brake: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Maintain course: each of the four adult people at the bus stop has a 90% chance of being killed and a 10% chance of serious injury.\n- Swerve left: not possible.\n- Swerve right: not possible.\n- Accelerate: each of the four adult people at the bus stop has a 9% chance of being killed and a 1% chance of serious injury; the adult person in the wrong-way car has a 70% chance of being killed and a 30% chance of serious injury; the adult occupant of this car has a 50% chance of serious injury and a 50% chance of minor injury.",
+   "record": {
+    "feasible_actions": {
+     "brake": true,
+     "maintain": true,
+     "swerve_left": false,
+     "swerve_right": false,
+     "accelerate": true
+    },
+    "outcomes": {
+     "brake": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "maintain": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.9,
+         "serious": 0.1,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     },
+     "swerve_left": {
+      "affected_parties": []
+     },
+     "swerve_right": {
+      "affected_parties": []
+     },
+     "accelerate": {
+      "affected_parties": [
+       {
+        "party_id": "stop_1",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_2",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_3",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "stop_4",
+        "severity_distribution": {
+         "fatal": 0.09,
+         "serious": 0.01,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "wrongway_1",
+        "severity_distribution": {
+         "fatal": 0.7,
+         "serious": 0.3,
+         "minor": 0.0,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       },
+       {
+        "party_id": "occupants_1",
+        "severity_distribution": {
+         "fatal": 0.0,
+         "serious": 0.5,
+         "minor": 0.5,
+         "possible": 0.0,
+         "property": 0.0
+        }
+       }
+      ]
+     }
+    },
+    "means_test": {
+     "accelerate": {
+      "wrongway_1": true,
+      "stop_1": false,
+      "stop_2": false,
+      "stop_3": false,
+      "stop_4": false,
+      "occupants_1": false
+     }
+    },
+    "parties": [
+     {
+      "party_id": "stop_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_2",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_3",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "stop_4",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "wrongway_1",
+      "consent": false,
+      "audit_type": "adult"
+     },
+     {
+      "party_id": "occupants_1",
+      "consent": false,
+      "audit_type": "adult"
+     }
+    ],
+    "audit_only": {
+     "weather": "clear",
+     "wrong_type": "adult",
+     "time_of_day": "day",
+     "location": "suburban street"
+    }
+   },
+   "labels": {
+    "U": "accelerate",
+    "K": "brake",
+    "K_STATUS": "permissible",
+    "harm": {
+     "brake": 3.624,
+     "maintain": 3.624,
+     "swerve_left": 0.0,
+     "swerve_right": 0.0,
+     "accelerate": 1.1204
+    },
+    "agency_mode": {
+     "brake": "OMISSION",
+     "maintain": "OMISSION",
+     "swerve_left": "NONE",
+     "swerve_right": "NONE",
+     "accelerate": "MEANS"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+# Team C's model prompt (PROMPT_HEAD in tools/reference_pipeline.py of
+# github.com/heinzarniaung/ael-codebook-v4-round1), copied so a change on their side can never silently
+# change a run. Every output records this template's name and sha256. tests/test_prompt.py flags drift
+# when a checkout of their repo is available.
+name: team_c_decision_v1
+source: heinzarniaung/ael-codebook-v4-round1 tools/reference_pipeline.py PROMPT_HEAD
+prompt: prompt.txt            # <<CASE_CODE>> and <<NARRATIVE>> are filled in per scenario
+reply_schema: reply.schema.json
+# Checks that need the scenario as well as the reply (see modelrunner.parser):
+checks:
+  case_matches: true          # "case" equals the case code in the prompt
+  feasible_from: record.feasible_actions   # where in the scenario's meta the possible actions are

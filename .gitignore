@@ -1,0 +1,7 @@
+out/
+data/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+scripts/seawulf/sw_script_*
+scripts/seawulf/sw_out_*

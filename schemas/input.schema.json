@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Automotive-Ethics-Labs-VIP/model-runner/schemas/input.schema.json",
+  "title": "model-runner input",
+  "description": "One of three shapes. Only the narrative (or text) is ever shown to a model; every other field of an item is carried through to results[].meta unchanged. Ids must be unique.",
+  "oneOf": [
+    {
+      "title": "Team C scenarios.json (ael-codebook build output)",
+      "type": "object",
+      "required": ["scenarios"],
+      "properties": {
+        "dataset": {"type": "string"},
+        "codebook": {"type": "string"},
+        "count": {"type": "integer"},
+        "scenarios": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scenario"}}
+      }
+    },
+    {
+      "title": "A list of scenarios",
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/scenario"}
+    },
+    {
+      "title": "A list of plain questions",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "not": {"required": ["scenario_id"]},
+        "properties": {
+          "id": {"type": "string", "minLength": 1, "description": "Becomes scenario_id"},
+          "text": {"type": "string", "minLength": 1, "description": "Becomes narrative"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "scenario": {
+      "type": "object",
+      "required": ["scenario_id", "narrative"],
+      "properties": {
+        "scenario_id": {"type": "string", "minLength": 1},
+        "narrative": {"type": "string", "minLength": 1, "description": "The text the model sees"},
+        "record": {
+          "type": "object",
+          "description": "Team C's Codebook v4 record. record.feasible_actions is used to check that a reply only chooses and ranks possible actions."
+        },
+        "labels": {"type": "object", "description": "Expected U and K labels. Never shown to the model; carried to meta for scoring."}
+      }
+    }
+  }
+}

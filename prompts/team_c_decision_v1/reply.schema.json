@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reply to the team_c_decision_v1 prompt",
+  "description": "The JSON object PROMPT_HEAD asks for. Checks that need the scenario (case code, feasible actions) are in modelrunner.parser.",
+  "type": "object",
+  "required": ["case", "decision", "ranking", "would_decline", "confidence", "deciding_fact", "primary_basis", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "case": {"type": "string"},
+    "decision": {"enum": ["brake", "maintain", "swerve_left", "swerve_right", "accelerate"]},
+    "ranking": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["brake", "maintain", "swerve_left", "swerve_right", "accelerate"]}
+    },
+    "would_decline": {"type": "boolean"},
+    "confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+    "deciding_fact": {"type": "string", "minLength": 1},
+    "primary_basis": {
+      "enum": ["minimize_total_harm", "do_not_use_a_person", "doing_vs_allowing", "respect_consent",
+               "protect_occupants", "protect_vulnerable", "follow_law_or_rules", "other"]
+    },
+    "reason": {"type": "string", "minLength": 1}
+  }
+}
