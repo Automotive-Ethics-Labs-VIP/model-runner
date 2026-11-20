@@ -39,13 +39,19 @@ def render(template, **values):
         return string.Template(f.read()).substitute(version=__version__, **values)
 
 
-def run_job(model, out, run_args, time_limit="04:00:00", partition=GPU_PARTITION):
+def run_job(model, out, run_args, time_limit="04:00:00", partition=GPU_PARTITION, cpu_test=False):
+    """The GPU job; with cpu_test, a CPU-only job on a CPU partition (to test the path without a GPU)."""
     h = home()
     stem = os.path.splitext(os.path.basename(out))[0]
     name = f"mr-{stem}"[:40]
     log = os.path.join(h, "logs", f"{name}-%j.log")
-    script = render("run.sbatch.tmpl", account=ACCOUNT, partition=partition, gpus=model.gpus,
-                    cpus=CPUS_PER_GPU * model.gpus, mem=f"{MEM_PER_GPU_GB * model.gpus}G", time=time_limit,
+    if cpu_test:
+        partition, gres_line, cpus, mem = CPU_PARTITION, "# CPU-only test job (--cpu-test): no GPU", 8, "32G"
+    else:
+        gres_line = f"#SBATCH --gres=gpu:{model.gpus}"
+        cpus, mem = CPUS_PER_GPU * model.gpus, f"{MEM_PER_GPU_GB * model.gpus}G"
+    script = render("run.sbatch.tmpl", account=ACCOUNT, partition=partition, gres_line=gres_line,
+                    cpus=cpus, mem=mem, time=time_limit,
                     job_name=name, log=log, hf_home=hf_home(), tmpdir=os.path.join(h, "tmp"),
                     python=sys.executable, run_args=" ".join(shlex.quote(a) for a in run_args), out=out,
                     results=out[:-5] + ".results.jsonl" if out.endswith(".json") else out + ".results.jsonl")

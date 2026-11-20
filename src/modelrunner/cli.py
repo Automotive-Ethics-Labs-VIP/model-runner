@@ -24,6 +24,7 @@ def add_run_args(p):
     g.add_argument("--limit", type=int, help="run only the first N items")
     g.add_argument("--ids", help="file with one scenario id per line")
     p.add_argument("--engine", default="auto", choices=["auto", "vllm", "hf", "mock"])
+    p.add_argument("--revision", help="pin a model commit (the login node pins one and passes it to the job)")
     p.add_argument("--template", default="team_c_decision_v1")
     p.add_argument("--n-samples", type=int, default=1)
     p.add_argument("--temperature", type=float, default=0.7)
@@ -35,6 +36,9 @@ def add_run_args(p):
     p.add_argument("--local", action="store_true", help="run here (inside a GPU allocation, or with --engine mock)")
     p.add_argument("--dry-run", action="store_true", help="print the plan and job scripts; submit nothing")
     p.add_argument("--time", default="04:00:00", help="GPU job time limit")
+    p.add_argument("--cpu-test", action="store_true",
+                   help="submit to a CPU partition with the hf engine: tests the whole path without a GPU "
+                        "(use a small model)")
     p.add_argument("--allow-remote-code", action="store_true",
                    help="allow trust_remote_code (only for registry entries marked trust_remote_code_ok)")
 
@@ -59,10 +63,17 @@ def _passthrough(args):
 
 def cmd_run(args):
     engine = None if args.engine == "auto" else args.engine
+    if args.cpu_test:
+        if engine not in (None, "hf"):
+            raise SystemExit("--cpu-test runs the hf engine (vLLM needs a GPU)")
+        engine = args.engine = "hf"
     ids = io_adapter.read_ids(args.ids) if args.ids else None
     local = args.local or engine == "mock"
     offline = local and engine != "mock" and os.environ.get("HF_HUB_OFFLINE") == "1"
-    model = resolver.resolve(args.model, engine=engine, allow_remote_code=args.allow_remote_code, offline=offline)
+    model = resolver.resolve(args.model, engine=engine, allow_remote_code=args.allow_remote_code, offline=offline,
+                             revision=args.revision)
+    if offline and args.revision and model.revision != args.revision:
+        raise SystemExit(f"{model.hf_id}@{args.revision} is not in the local cache")
     items, info = io_adapter.load(args.input, ids=ids, limit=args.limit)
     print(f"input: {info['count']} items from {args.input} ({info['format']})")
     print(f"model: {model.summary()}")
@@ -84,11 +95,13 @@ def cmd_run(args):
     # login node: pin the revision, download if needed, then the GPU job
     run_args = _passthrough(args)
     run_args[run_args.index("--model") + 1] = model.hf_id
+    run_args += ["--revision", model.revision]
     jobs = []
     model.local_path = resolver.local_snapshot(model)
     if model.local_path is None:
         jobs.append(("download", slurm.download_job(model)))
-    jobs.append(("run", slurm.run_job(model, os.path.abspath(args.out), run_args, time_limit=args.time)))
+    jobs.append(("run", slurm.run_job(model, os.path.abspath(args.out), run_args,
+                                           time_limit=args.time, cpu_test=args.cpu_test)))
     if args.dry_run:
         for kind, job in jobs:
             print(f"\n===== {kind} job: {job.path}\n{job.script}")

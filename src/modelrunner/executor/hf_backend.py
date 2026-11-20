@@ -31,7 +31,8 @@ class HfExecutor(Executor):
                 continue
             try:
                 self.model = cls.from_pretrained(src, revision=model.revision, torch_dtype=torch.bfloat16,
-                                                 device_map="auto", trust_remote_code=model.trust_remote_code)
+                                                 device_map="auto" if torch.cuda.is_available() else None,
+                                                 trust_remote_code=model.trust_remote_code)
                 break
             except Exception as e:  # noqa: BLE001
                 errors.append(f"{name}: {type(e).__name__}: {e}")
@@ -75,4 +76,6 @@ class HfExecutor(Executor):
 
     def hardware(self):
         import torch
+        if not torch.cuda.is_available():
+            return {"gpu": None, "gpu_count": 0}
         return {"gpu": torch.cuda.get_device_name(0), "gpu_count": torch.cuda.device_count()}

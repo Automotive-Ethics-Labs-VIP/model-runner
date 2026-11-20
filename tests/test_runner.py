@@ -183,4 +183,17 @@ def test_dry_run_renders_both_jobs(tmp_path, anchors_path, monkeypatch, capsys):
     assert "--gres=gpu:2" in out and "-m modelrunner run --local" in out
     assert "download --model someone/m --revision deadbeef" in out
     assert "HF_HUB_OFFLINE=1" in out
+    assert "--revision deadbeef" in out.split("===== run job")[1]  # the job uses the pinned commit
     assert not os.path.exists(tmp_path / "home" / "jobs")  # nothing written or submitted
+
+
+def test_cpu_test_job_has_no_gpu(tmp_path, anchors_path, monkeypatch, capsys):
+    monkeypatch.setenv("MODELRUNNER_HOME", str(tmp_path / "home"))
+    monkeypatch.setenv("HF_HOME", str(tmp_path / "hf"))
+    monkeypatch.setattr(resolver, "resolve", lambda *a, **k: resolver.ResolvedModel(
+        key="x", hf_id="someone/tiny", revision="abc", engine=k.get("engine") or "vllm"))
+    assert main(["run", "--input", anchors_path, "--model", "someone/tiny", "--out", str(tmp_path / "o.json"),
+                 "--cpu-test", "--dry-run"]) == 0
+    run_script = capsys.readouterr().out.split("===== run job")[1]
+    assert "--gres" not in run_script and "short-40core-shared" in run_script
+    assert "--engine hf" in run_script

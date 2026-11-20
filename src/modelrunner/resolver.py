@@ -98,12 +98,12 @@ def check_files(filenames):
                             if pickles else ""))
 
 
-def resolve(name, engine=None, allow_remote_code=False, offline=False, hub=None):
+def resolve(name, engine=None, allow_remote_code=False, offline=False, hub=None, revision=None):
     """``hub``: a huggingface_hub.HfApi-like object (injectable for tests). ``offline``: use only the
     registry and the local cache."""
     key, hf_id = normalise(name)
     entry = registry().get(key, {}) if key else {}
-    m = ResolvedModel(key=key or hf_id, hf_id=hf_id, revision=entry.get("revision"),
+    m = ResolvedModel(key=key or hf_id, hf_id=hf_id, revision=revision or entry.get("revision"),
                       dtype=entry.get("dtype", "bfloat16"), engine=engine or entry.get("engine", "vllm"),
                       max_model_len=entry.get("max_model_len", 8192),
                       chat_template_kwargs=entry.get("chat_template_kwargs") or {},
