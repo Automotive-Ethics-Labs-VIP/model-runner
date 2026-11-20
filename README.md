@@ -15,9 +15,10 @@ modelrunner run --input scenarios.json --model deepseek-9b --out runs/deepseek-r
 
 | Phase | State |
 | --- | --- |
-| 1. Local pipeline (schemas, prompts, parser, mock engine, tests) | done: 49 tests; a mock run over all 228 Round 1 scenarios validates |
-| 0. Cluster spike | compute nodes reach huggingface.co and pypi.org; vLLM 0.34.0 installs; GPU spike queued |
-| 2. All of Round 1 on the 9B model | waiting on the spike |
+| 1. Local pipeline (schemas, prompts, parser, mock engine, tests) | done: 50 tests, CI on Linux and Windows; a mock run over all 228 Round 1 scenarios validates |
+| 0. Cluster checks | done: compute nodes reach huggingface.co and pypi.org; vLLM 0.34.0 installs; the 9B and Nanbeige 33B resolve (19.3 GB / 1 GPU, 66.2 GB / 2 GPUs) and both architectures are supported by vLLM without remote code; the full submit path (pin, download job, dependency, offline run with the hf engine, output) ran on a CPU node with `--cpu-test` |
+| 0. GPU spike (vLLM, batched) | queued: most A100 nodes were down for a reboot on 2026-11-20 |
+| 2. All of Round 1 on the 9B model | waiting on the GPU spike |
 | 3. Nanbeige 33B and models outside the registry | not started |
 
 Inference only. Nothing here trains a model.
@@ -83,6 +84,8 @@ safetensors; `trust_remote_code` is off unless a registry entry allows it. Model
 (4 x A100 80GB) are refused with the arithmetic.
 
 Anywhere, without a GPU: `--engine mock --local` runs the whole pipeline with a deterministic fake model.
+On the cluster, `--cpu-test` with a small model (e.g. `HuggingFaceTB/SmolLM2-135M-Instruct`) runs the real
+download and run jobs on a CPU partition, to check the plumbing without waiting for a GPU.
 
 ## Layout
 
