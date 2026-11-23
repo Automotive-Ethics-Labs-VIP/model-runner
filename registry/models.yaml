@@ -15,7 +15,7 @@ deepseek-9b:
   hf_id: xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic
   dtype: bfloat16
   engine: vllm
-  max_model_len: 8192
+  max_model_len: 16384
   loader_class: AutoModelForMultimodalLM
   notes: >
     Reference model of the first SeaWulf run (job 2417039). A refusal-removed ("uncensored") fine-tune:
@@ -26,5 +26,5 @@ nanbeige-33b:
   hf_id: Nanbeige/Nanbeige4.3-33B
   dtype: bfloat16
   engine: vllm
-  max_model_len: 8192
+  max_model_len: 16384
   notes: Named in the ticket. Size and loader unverified until it is resolved on the cluster.

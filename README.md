@@ -17,8 +17,8 @@ modelrunner run --input scenarios.json --model deepseek-9b --out runs/deepseek-r
 | --- | --- |
 | 1. Local pipeline (schemas, prompts, parser, mock engine, tests) | done: 50 tests, CI on Linux and Windows; a mock run over all 228 Round 1 scenarios validates |
 | 0. Cluster checks | done: compute nodes reach huggingface.co and pypi.org; vLLM 0.34.0 installs; the 9B and Nanbeige 33B resolve (19.3 GB / 1 GPU, 66.2 GB / 2 GPUs) and both architectures are supported by vLLM without remote code; the full submit path (pin, download job, dependency, offline run with the hf engine, output) ran on a CPU node with `--cpu-test` |
-| 0. GPU spike (vLLM, batched) | queued: most A100 nodes were down for a reboot on 2026-11-20 |
-| 2. All of Round 1 on the 9B model | waiting on the GPU spike |
+| 0. GPU spike (vLLM, batched) | done (job 2443530, 2026-11-23): the 9B on one A100 80GB, vLLM 0.34.0; 18 Round 1 prompts in 66 s (582 tok/s) after an 11-minute load; the parser reads 15/18, the other 3 hit the 4096-token reply limit, so the defaults are now 8192 reply tokens and a 16384 context |
+| 2. All of Round 1 on the 9B model | next |
 | 3. Nanbeige 33B and models outside the registry | not started |
 
 Inference only. Nothing here trains a model.

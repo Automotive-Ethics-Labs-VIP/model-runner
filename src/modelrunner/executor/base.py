@@ -6,7 +6,7 @@ from dataclasses import dataclass
 class Sampling:
     temperature: float = 0.7
     top_p: float = 0.9
-    max_new_tokens: int = 4096
+    max_new_tokens: int = 8192
 
 
 @dataclass

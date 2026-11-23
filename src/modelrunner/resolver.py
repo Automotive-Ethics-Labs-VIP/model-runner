@@ -37,7 +37,7 @@ class ResolvedModel:
     dtype: str = "bfloat16"
     engine: str = "vllm"
     gpus: int = 1
-    max_model_len: int = 8192
+    max_model_len: int = 16384
     weights_bytes: Optional[int] = None
     chat_template_kwargs: dict = field(default_factory=dict)
     loader_class: Optional[str] = None
@@ -105,7 +105,7 @@ def resolve(name, engine=None, allow_remote_code=False, offline=False, hub=None,
     entry = registry().get(key, {}) if key else {}
     m = ResolvedModel(key=key or hf_id, hf_id=hf_id, revision=revision or entry.get("revision"),
                       dtype=entry.get("dtype", "bfloat16"), engine=engine or entry.get("engine", "vllm"),
-                      max_model_len=entry.get("max_model_len", 8192),
+                      max_model_len=entry.get("max_model_len", 16384),
                       chat_template_kwargs=entry.get("chat_template_kwargs") or {},
                       loader_class=entry.get("loader_class"), notes=entry.get("notes", "").strip())
     if allow_remote_code:

@@ -29,7 +29,7 @@ def add_run_args(p):
     p.add_argument("--n-samples", type=int, default=1)
     p.add_argument("--temperature", type=float, default=0.7)
     p.add_argument("--top-p", type=float, default=0.9)
-    p.add_argument("--max-new-tokens", type=int, default=4096)
+    p.add_argument("--max-new-tokens", type=int, default=8192)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--max-attempts", type=int, default=3, help="1 + retries for replies that do not parse")
     p.add_argument("--resume", action="store_true", help="continue a run, skipping results already written")
